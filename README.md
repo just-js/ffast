@@ -20,7 +20,9 @@ for the different OS's.
 There are many dragons here. This is surfacing a lot of dangerous things
 into JS-land which break things like JavaScript memory safety. It should be possible
 to wrap this in an internal module and hide the unsafe things away, but further
-research needs to be done on that front.
+research needs to be done on that front. The goal rn is to see how fast we can go
+with few if any guardrails. We can then measure the overhead any safety features
+we add have on the baseline implementation.
 
 ## Support
 
