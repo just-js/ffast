@@ -38,7 +38,9 @@ research needs to be done on that front.
 
 ### Requirements
 
-- a C++ compiler
+- curl
+- make
+- a C++ compiler toolchain to compile the benchmark shared library
 - node LTS (v22.13.1) or Current (v23.7.0) with ```npm``` and ```node-gyp```
 
 ### Makefile
