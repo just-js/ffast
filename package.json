@@ -1,0 +1,16 @@
+{
+  "name": "ffast",
+  "version": "0.0.1",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "make build/Release/ffast.node"
+  },
+  "type": "module",
+  "author": "",
+  "license": "ISC",
+  "gypfile": true,
+  "description": ""
+}
