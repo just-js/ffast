@@ -4,3 +4,5 @@ src/v8-fast-api-calls.h
 binding.gyp
 *.sh
 *.so
+node_modules
+package-lock.json

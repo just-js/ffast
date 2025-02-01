@@ -6,11 +6,14 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "make build/Release/ffast.node"
+    "gen": "node gen.js ffast"
   },
   "type": "module",
   "author": "",
   "license": "ISC",
   "gypfile": true,
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "node-gyp": "^11.0.0"
+  }
 }
