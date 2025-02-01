@@ -25,11 +25,11 @@ research needs to be done on that front.
 
 | OS | Arch | Supported | Planned |
 | --- | --- | --- | --- |
-| linux | x64 | :heavy_check_mark: | |
-| linux | arm64 |  | :white_check_mark: |
-| macos | x64 |  | :white_check_mark: |
-| macos | arn64 |  | :white_check_mark: |
-| windows | x64 | | :white_check_mark: |
+| linux | x64 | :white_check_mark: | |
+| linux | arm64 |  | :heavy_check_mark: |
+| macos | x64 |  | :heavy_check_mark: |
+| macos | arn64 |  | :heavy_check_mark: |
+| windows | x64 | | :heavy_check_mark: |
 | windows | x64 | | |
 | android | arm64 | | |
 
