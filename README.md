@@ -43,7 +43,8 @@ we add have on the baseline implementation.
 
 - curl
 - make
-- a C++ compiler toolchain to compile the benchmark shared library
+- a C compiler toolchain to compile the benchmark shared library
+- a C++ compiler toolchain to compile the bindings
 - node LTS (v22.13.1) or Current (v23.7.0) with ```npm``` and ```node-gyp```
 
 ### Makefile
