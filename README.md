@@ -1,6 +1,6 @@
 # ffast
 
-The fast node.js FFI library
+The fast (and dangerous 🐉) node.js FFI library
 
 ## Introduction
 
@@ -16,7 +16,8 @@ It should also be possible to do the same on Windows and other platforms. It's w
 required to wrap standard C function calls and implementing the calling conventions
 for the different OS's.
 
-Beware! There are many dragons here. This is surfacing a lot of dangerous things
+🐉🐉🐉 Beware! 🐉🐉🐉 
+There are many dragons here. This is surfacing a lot of dangerous things
 into JS-land which break things like JavaScript memory safety. It should be possible
 to wrap this in an internal module and hide the unsafe things away, but further
 research needs to be done on that front.
