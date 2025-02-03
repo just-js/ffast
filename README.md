@@ -6,15 +6,27 @@ The fast (and dangerous 🐉) node.js FFI library
 
 This is an initial Proof of Concept for surfacing all the lower level bindings
 necessary into JS-land so we can generate FFI wrappers from JS itself, without
-any dependencies on third party non-JS libraries like libffi or libtcc.
+any dependencies on third party non-JS libraries like ```libffi``` or ```libtcc```.
 
-This should run on node.js current and LTS on Linux/x64. Additions will be made
-shortly to allow building and running on macos/arm64 and Linux/arm64/raspberry pi.
+This should run on [```node.js```](https://nodejs.org) current and LTS on ```Linux x64/arm64``` and ```macos arm64```. 
+It has been tested on ```Raspberry Pi 3B+``` which has a ```Cortex A53``` and works fine there.
+It will also probably work on older versions of ```node.js``` but will need to be 
+rebuilt for older versions of V8 that ```node.js``` embeds. Please report on issues
+you find.
 
-It should also be possible to do the same on Windows and other platforms. It's will
-*just* be a matter of implementing the assembler for the small subset of instructions
-required to wrap standard C function calls and implementing the calling conventions
-for the different OS's.
+It currently supports (with bugs and pretty much zero safety) passing any ```integer```
+types, ```strings``` and ```pointers```. float support and struct passing will be coming a
+little later. There are benchmarks coming soon that will show how to do callbacks
+from ```C/C++``` to ```JS``` too.
+
+It should be pretty easy to add a lot of libraries to this using the [bindings
+definitions](https://github.com/just-js/lo/tree/main/lib) that already exist for the [lo](https://github.com/just-js/lo) runtime. It should also be possible to 
+run this on [```Bun```](https://bun.sh) if there is some work done on Bun side to add symbols for the 
+V8 fastcall api's (which won't have any effect on Bun/JSC).
+
+Windows support should not be a lot of work (famous last words!).
+
+Right now assumption is 64-bit platforms only.
 
 🐉🐉🐉 Beware! 🐉🐉🐉 
 There are many dragons here. This is surfacing a lot of dangerous things
@@ -29,13 +41,12 @@ we add have on the baseline implementation.
 | OS | Arch | Supported | Planned |
 | --- | --- | --- | --- |
 | linux | x64 | :white_check_mark: | |
-| linux | arm64 |  | :heavy_check_mark: |
+| linux | arm64 | :white_check_mark: | |
 | macos | x64 |  | :heavy_check_mark: |
-| macos | arn64 |  | :heavy_check_mark: |
+| macos | arn64 | :white_check_mark: | |
 | windows | x64 | | :heavy_check_mark: |
-| windows | x64 | | |
-| android | arm64 | | |
-
+| windows | x64 | | :heavy_check_mark: |
+| android | arm64 | | :heavy_check_mark: |
 
 ## Building
 
