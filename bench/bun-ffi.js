@@ -15,7 +15,7 @@ const { symbols: {
 })
 
 const runs = 300000000
-const iter = 5
+const iter = 10
 const bench = new Bench()
 bench.name_width = 32
 

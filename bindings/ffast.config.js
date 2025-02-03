@@ -9,10 +9,6 @@ const api = {
     pointers: ['void*', 'const char*'],
     result: 'pointer',
   },
-  aligned_alloc: {
-    parameters: ['u32', 'u32'],
-    result: 'pointer'
-  },
   mprotect: {
     parameters: ['pointer', 'u32', 'i32'],
     result: 'i32',
@@ -27,10 +23,6 @@ const api = {
   },
   munmap: {
     parameters: ['pointer', 'u32'],
-    result: 'i32',
-  },
-  memfd_create: {
-    parameters: ['string', 'u32'],
     result: 'i32',
   },
   bind_fastcall: {
@@ -63,18 +55,6 @@ const api = {
     parameters: ['buffer'],
     declare_only: true,
     nofast: true
-  },
-  madvise: {
-    parameters: ['pointer', 'u32', 'i32'],
-    result: 'i32'
-  },
-  sleep: {
-    parameters: ['i32'],
-    result: 'void'
-  },
-  usleep: {
-    parameters: ['u32'],
-    result: 'i32'
   },
   utf8_length: {
     result: 'i32',
@@ -117,7 +97,6 @@ const constants = {
   RTLD_GLOBAL: 'i32',
   RTLD_DEFAULT: 'u64',
   RTLD_NEXT: 'u64',
-  MADV_HUGEPAGE: 'i32',
 }
 
 const name = 'ffast'

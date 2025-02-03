@@ -10,8 +10,8 @@ const int32_three_int32_args = bind(assert(dlsym(handle, 'int32_three_int32_args
 const void_one_pointer_arg = bind(assert(dlsym(handle, 'void_one_pointer_arg')), 'void', ['pointer'])
 const int32_one_pointer_arg = bind(assert(dlsym(handle, 'int32_one_pointer_arg')), 'i32', ['pointer'])
 
-const runs = 300000000
-const iter = 5
+const runs = 1000000000
+const iter = 10
 
 const bench = new Bench()
 bench.name_width = 32
@@ -56,7 +56,6 @@ for (let j = 0; j < iter; j++) {
   }
   bench.end(runs)
 }
-
 
 for (let j = 0; j < iter; j++) {
   bench.start('void_one_pointer_arg')

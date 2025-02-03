@@ -13,8 +13,8 @@ const { symbols: {
   int32_one_pointer_arg: { parameters: ['pointer'], result: 'i32', },
 })
 
-const runs = 300000000
-const iter = 5
+const runs = 1000000000
+const iter = 10
 const bench = new Bench()
 bench.name_width = 32
 
