@@ -340,11 +340,26 @@ const noop = () => {};
 const { mem, cputime } = await wrap_mem_usage();
 
 if (!globalThis.assert) {
-  function assert(condition, message, ErrorType = Error) {
-    if (!condition) {
-      throw new ErrorType(message || "Assertion failed");
-    }
+  function fix_stack (err) {
+    err.stack = err.stack.split('\n')
+      .filter(line => !line.match(/\s+at assert \(main\.js.+/))
+      .join('\n')
   }
+
+  function assert (condition, message, ErrorType = Error) {
+    if (!condition) {
+      if (message && message.constructor.name === 'Function') {
+        const err = new ErrorType(message(condition))
+        fix_stack(err)
+        throw(err)
+      }
+      const err = new ErrorType(message || "Assertion failed")
+      fix_stack(err)
+      throw(err)
+    }
+    return condition
+  }
+
 
   globalThis.assert = assert;
 }

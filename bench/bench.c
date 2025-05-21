@@ -1,4 +1,5 @@
 #include <string.h>
+#include <stdlib.h>
 
 typedef int (*callback)(int i, void* j);
 
@@ -54,4 +55,10 @@ int int32_one_pointer_arg (void* ptr) {
 
 int int32_one_string_arg (const char* str) {
   return strnlen(str, 1024);
+}
+
+void* pointer_no_args () {
+  void* m = malloc(8);
+  free(m);
+  return 2147483647;
 }
