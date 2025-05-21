@@ -60,5 +60,5 @@ int int32_one_string_arg (const char* str) {
 void* pointer_no_args () {
   void* m = malloc(8);
   free(m);
-  return 2147483647;
+  return (void*)2147483647;
 }
