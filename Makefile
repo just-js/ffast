@@ -1,14 +1,20 @@
 CC=cc
 V8_VERSION=$(shell node -e "console.log(process.versions.v8.substring(0, process.versions.v8.indexOf('-')))")
 URL="https://raw.githubusercontent.com/v8/v8/refs/tags/${V8_VERSION}/include/v8-fast-api-calls.h"
+SQLITE_PATH=../lo/lib/sqlite/deps/sqlite
 
 .PHONY: library bench help
 
 help:
 	@awk 'BEGIN {FS = ":.*?## "} /^[a-zA-Z0-9\/_\.-]+:.*?## / {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}' $(MAKEFILE_LIST)
 
-bench/bench.so: ## build the shared library for the benchmarks
-	${CC} -Wno-pointer-to-int-cast -O3 -march=native -mtune=native -shared -o bench/bench.so -s bench/bench.c
+bench/sqlite-baseline: bench/sqlite-baseline.c ## build the sqlite c application for the benchmarks
+	${CC} -O3 -ffast-math -c -march=native -mtune=native -fno-exceptions -fno-asynchronous-unwind-tables -ffunction-sections -fdata-sections -I${SQLITE_PATH} bench/sqlite-baseline.c -o baseline.o
+	${CC} -O3 -static -s -march=native -mtune=native -fno-exceptions -fno-asynchronous-unwind-tables -ffunction-sections -fdata-sections -o bench/sqlite-baseline baseline.o ${SQLITE_PATH}/libsqlite3.a -lm
+#	${CC} -O3 -static -s -march=native -mtune=native -fno-exceptions -fno-asynchronous-unwind-tables -ffunction-sections -fdata-sections -o bench/sqlite-baseline baseline.o -lsqlite3 -lm
+
+bench/bench.so: bench/bench.c ## build the shared library for the benchmarks
+	${CC} -g -Wno-pointer-to-int-cast -O3 -march=native -mtune=native -shared -o bench/bench.so bench/bench.c
 
 bench: bench/bench.so build/Release/ffast.node ## run the benchmark
 	cd bench && bun bun-ffi.js && deno -A deno-ffi.js && node ffast.js
@@ -34,6 +40,8 @@ clean: ## clean all the build artifacts except node_modules
 	rm -f src/ffast.cc
 	rm -f src/v8-fast-api-calls.h
 	rm -f bench/bench.so
+	rm -f *.o
+	rm -f bench/sqlite-baseline
 
 cleanall: ## clean everything including node_modules and package-lock.json
 	$(MAKE) clean

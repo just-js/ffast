@@ -24,12 +24,16 @@ using v8::ArrayBuffer;
 using v8::BackingStore;
 using v8::Number;
 using v8::NewStringType;
-using v8::FastApiArrayBufferView;
 using v8::FastApiArrayBuffer;
 using v8::FastOneByteString;
 using v8::BigInt;
 using v8::Uint32Array;
 using v8::Uint8Array;
+
+V8_EXPORT struct FastApiTypedArray {
+  uintptr_t byte_length;
+  void* data;
+};
 
 void NODE_SET_VALUE(Isolate *isolate, Local<Object> 
   recv, const char *name, Local<Value> value) {

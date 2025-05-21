@@ -45,8 +45,9 @@ we add have on the baseline implementation.
 | macos | x64 |  | :heavy_check_mark: |
 | macos | arn64 | :white_check_mark: | |
 | windows | x64 | | :heavy_check_mark: |
-| windows | x64 | | :heavy_check_mark: |
+| windows | arm64 | | :heavy_check_mark: |
 | android | arm64 | | :heavy_check_mark: |
+| windows/wsl2 | x64 | :white_check_mark: | |
 
 ## Building
 

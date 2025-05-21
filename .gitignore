@@ -1,8 +1,12 @@
 build
-src/ffast.cc
+src/*.cc
 src/v8-fast-api-calls.h
 binding.gyp
 *.sh
 *.so
 node_modules
 package-lock.json
+*.o
+*.a
+*.json
+*.lock

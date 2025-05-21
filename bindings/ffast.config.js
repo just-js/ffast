@@ -13,6 +13,14 @@ const api = {
     parameters: ['pointer', 'u32', 'i32'],
     result: 'i32',
   },
+  aligned_alloc: {
+    parameters: ['u32', 'u32'],
+    result: 'pointer'
+  },
+  madvise: {
+    parameters: ['pointer', 'u32', 'i32'],
+    result: 'i32'
+  },
   memcpy: {
     parameters: ['pointer', 'pointer', 'u32'],
     result: 'pointer',
@@ -348,8 +356,8 @@ void get_addressSlow(const FunctionCallbackInfo<Value> &args) {
   ((uint64_t*)args[1].As<Uint32Array>()->Buffer()->Data())[0] = (uint64_t)ptr;
 }
 
-void get_addressFast(void* p, struct FastApiArrayBufferView* const p_buf, 
-  struct FastApiArrayBufferView* const p_ret) {
+void get_addressFast(void* p, struct FastApiTypedArray* const p_buf, 
+  struct FastApiTypedArray* const p_ret) {
   ((uint64_t*)p_ret->data)[0] = (uint64_t)p_buf->data;
 }
 
@@ -482,7 +490,7 @@ void read_memorySlow(const FunctionCallbackInfo<Value> &args) {
   memcpy(dest, start, size);
 }
 
-void read_memoryFast(void* p, struct FastApiArrayBufferView* const p_buf, 
+void read_memoryFast(void* p, struct FastApiTypedArray* const p_buf, 
   void* start, uint32_t size) {
   memcpy(p_buf->data, start, size);
 }
