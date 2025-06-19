@@ -1,19 +1,21 @@
 {
-  "name": "ffast",
-  "version": "0.0.1",
+  "name": "@beardsoft/ffast",
+  "version": "0.0.2",
   "directories": {
     "lib": "lib"
   },
+  "main": "lib/ffast.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "gen": "node gen.js ffast"
   },
   "type": "module",
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "gypfile": true,
   "description": "",
   "devDependencies": {
     "node-gyp": "^11.0.0"
-  }
+  },
+  "files": ["lib/ffast.js", "lib/arm64.js", "lib/gen.js", "gen.js", "package.json", "lib/x64.js", "*.node", "LICENSE"]
 }
