@@ -605,7 +605,7 @@ const includes = [
   '<atomic>'
 ]
 
-const libs = []
+const libs = ['ssl', 'crypto']
 const obj = []
 const include_paths = []
 const lib_paths = []

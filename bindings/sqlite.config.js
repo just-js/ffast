@@ -222,12 +222,12 @@ using v8::Uint32Array;
 using v8::Uint8Array;
 typedef int (*callback)(void*,int,char**,char**);
 `
-const libraries = ['/media/andrew/OCZ/source2023/just-js/lo/lib/sqlite/deps/sqlite/libsqlite3.a']
+const libs = ['sqlite3']
 const constants = {
   SQLITE_OPEN_READWRITE: 'i32', SQLITE_OPEN_PRIVATECACHE: 'i32',
   SQLITE_ROW: 'i32', SQLITE_OPEN_NOMUTEX: 'i32', SQLITE_OPEN_CREATE: 'i32',
   SQLITE_OK: 'i32', SQLITE_OPEN_READONLY: 'i32', SQLITE_DONE: 'i32',
 }
-const include_dirs = ['../lo/lib/sqlite/deps/sqlite']
+const include_dirs = []
 
-export { api, includes, name, preamble, libraries, constants, include_dirs }
+export { api, includes, name, preamble, libs, constants, include_dirs }

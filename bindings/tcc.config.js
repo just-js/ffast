@@ -53,7 +53,7 @@ const api = {
     name : 'tcc_compile_string'
   },
   relocate: {
-    parameters: ['pointer'],
+    parameters: ['pointer', 'pointer'],
     pointers: ['TCCState*'],
     result: 'i32',
     name : 'tcc_relocate'
@@ -87,10 +87,10 @@ const api = {
 
 const name = 'tcc'
 const includes = ['<libtcc.h>']
-const include_dirs = ['../lo/lib/tcc/deps/libtcc']
-const libraries = ['/media/andrew/OCZ/source2023/just-js/lo/lib/tcc/deps/libtcc/libtcc.a']
+const include_dirs = []
+const libs = ['tcc']
 const preamble = `
 using v8::Uint32Array;
 `
 
-export { api, includes, name, libraries, preamble, include_dirs }
+export { api, includes, name, libs, preamble, include_dirs }
