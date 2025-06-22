@@ -17,7 +17,8 @@ bench/bench.so: bench/bench.c ## build the shared library for the benchmarks
 	${CC} -g -Wno-pointer-to-int-cast -O3 -march=native -mtune=native -shared -o bench/bench.so bench/bench.c
 
 bench: bench/bench.so build/Release/ffast.node ## run the benchmark
-	cd bench && bun bun-ffi.js && deno -A deno-ffi.js && node ffast.js
+	npm run bench | tee bench.log
+	npm run chart
 
 src/v8-fast-api-calls.h: ## download the v8 fast api headers for current node/v8 version
 	echo "downloading src.v8-fast-api-calls.h"

@@ -8,7 +8,9 @@
   "scripts": {
     "build": "rm -f binding.gyp && npm run gen && node-gyp rebuild",
     "test": "exit 0",
-    "gen": "node gen.js ffast"
+    "gen": "node gen.js ffast",
+    "bench": "cd bench && bun bun-ffi.js && deno -A deno-ffi.js && node ffast.js",
+    "chart": "node bench/chart.js"
   },
   "type": "module",
   "author": "Andrew Johnston <apjohnsto@gmail.com>",
