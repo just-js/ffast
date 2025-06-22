@@ -6,16 +6,17 @@
   },
   "main": "lib/ffast.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "rm -f binding.gyp && npm run gen && node-gyp rebuild",
+    "test": "exit 0",
     "gen": "node gen.js ffast"
   },
   "type": "module",
-  "author": "",
+  "author": "Andrew Johnston <apjohnsto@gmail.com>",
   "license": "MIT",
   "gypfile": true,
   "description": "",
   "devDependencies": {
     "node-gyp": "^11.0.0"
   },
-  "files": ["lib/ffast.js", "lib/arm64.js", "lib/gen.js", "gen.js", "package.json", "lib/x64.js", "*.node", "LICENSE"]
+  "files": ["bindings/ffast.config.js", "lib/ffast.js", "lib/arm64.js", "lib/gen.js", "gen.js", "package.json", "lib/x64.js", "src/ffast.h", "build/Release/ffast.node", "LICENSE"]
 }

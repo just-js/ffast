@@ -232,6 +232,7 @@ void SlowCallback(const FunctionCallbackInfo<Value> &args) {
   HandleScope scope(isolate);
   int r = 1;
   int s = 0;
+  // todo
   char* temp_strs[100];
   for (int i = 0; i < state->nparam; i++) {
     switch (state->param[i]) {
@@ -305,6 +306,7 @@ void SlowCallback(const FunctionCallbackInfo<Value> &args) {
     }
   }
   lo_fastcall(state);
+  //todo
   for (int i = 0; i < s; i++) {
     free(temp_strs[i]);
   }
