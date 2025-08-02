@@ -43,7 +43,7 @@ we add have on the baseline implementation.
 | linux | x64 | :white_check_mark: | |
 | linux | arm64 | :white_check_mark: | |
 | macos | x64 |  | :heavy_check_mark: |
-| macos | arn64 | :white_check_mark: | |
+| macos | arm64 | :white_check_mark: | |
 | windows | x64 | | :heavy_check_mark: |
 | windows | arm64 | | :heavy_check_mark: |
 | android | arm64 | | :heavy_check_mark: |
